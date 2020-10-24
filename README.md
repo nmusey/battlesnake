@@ -9,6 +9,9 @@ To start, ensure that node and npm are installed using `node --version && npm --
 ### Packages
 Run `npm install` to install all packages.
 
+## Testing
+To test, use `npm test`. The server must be manually stopped after testing (ctrl + c).
+
 ## Running the Server Locally
 To run the server locally, run `npm start`.
 

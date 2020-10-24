@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
     "@types/express": "^4.17.8",
@@ -12,11 +13,16 @@
     "nodemon": "^2.0.6"
   },
   "scripts": {
-    "dev:build": "tsc --preserveWatchOutput --project config/tsconfig.json",
-    "dev:build:watch": "tsc --watch --preserveWatchOutput --project config/tsconfig.json",
-    "dev:run": "nodemon build/index.js",
-    "dev": "concurrently \"npm run dev:build:watch\" \"npm run dev:run\"",
-    "start": "npm run dev"
+    "build": "npx tsc --preserveWatchOutput --project config/tsconfig.json",
+    "build:watch": "npx tsc --watch --preserveWatchOutput --project config/tsconfig.json",
+    
+    "startSnake": "node build/index.js",
+    "startSnake:watch": "npx nodemon build/index.js",
+    
+    "dev": "concurrently \"npm run build:watch\" \"npm run startSnake:watch\"",
+
+    "start": "npm run dev",
+    "test": "npx jest --config='./config/jest.config.js'"
   },
   "repository": {
     "type": "git",
