@@ -13,6 +13,7 @@ Run `npm install` to install all packages.
 To test, use `npm test`. The server must be manually stopped after testing (ctrl + c).
 
 ## Running the Server Locally
-To run the server locally, run `npm start`.
+To run the server locally for development, run `npm run dev`.
+To run the server as a build, run `npm start`.
 
 Other scripts can be found in `package.json` but `start` is the most important.

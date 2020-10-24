@@ -13,7 +13,7 @@
     "nodemon": "^2.0.6"
   },
   "scripts": {
-    "build": "npx tsc --preserveWatchOutput --project config/tsconfig.json",
+    "build": "npx tsc --project config/tsconfig.json",
     "build:watch": "npx tsc --watch --preserveWatchOutput --project config/tsconfig.json",
     
     "startSnake": "node build/index.js",
@@ -21,7 +21,7 @@
     
     "dev": "concurrently \"npm run build:watch\" \"npm run startSnake:watch\"",
 
-    "start": "npm run dev",
+    "start": "npm run startSnake",
     "test": "npx jest --config='./config/jest.config.js'"
   },
   "repository": {
