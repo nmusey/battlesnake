@@ -1,7 +1,7 @@
-import {Game} from '../Game';
-import {Board} from '../Board';
-import {Battlesnake} from '../Battlesnake';
-import {Move} from '../Move';
+import { Game } from '../Game';
+import { Board } from '../Board';
+import { Battlesnake } from '../Battlesnake';
+import { Move } from '../Move';
 
 export type MoveRequest = {
     game?: Game;

@@ -1,5 +1,5 @@
-import {Board} from '../Board';
-import {Battlesnake} from '../Battlesnake';
+import { Board } from '../Board';
+import { Battlesnake } from '../Battlesnake';
 
 export type GameRequest = {
     game?: Object,

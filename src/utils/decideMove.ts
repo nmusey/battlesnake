@@ -1,5 +1,5 @@
-import {Move, Moves} from "../types/Move";
-import {Board} from "../types/Board"
+import { Move, Moves } from "../types/Move";
+import { Board } from "../types/Board"
 
 export let lastMove = Moves.UP;
 

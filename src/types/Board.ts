@@ -1,5 +1,5 @@
-import {Location} from './Location';
-import {Battlesnake} from './Battlesnake';
+import { Location } from './Location';
+import { Battlesnake } from './Battlesnake';
 
 export type Board = {
     height: number;
