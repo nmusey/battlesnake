@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
 
     const infoResponse: InfoResponse = {
         apiVersion: "1",
-        author: "GetOutMeSwamp",
+        author: "Nick Musey",
         color: "#FFA200",
         head: "tongue",
         version: "0"
