@@ -39,8 +39,8 @@ jobs:
     needs: test
 
     steps:
+      - uses: "actions/checkout@v2"
       - name: Login to Heroku
-        uses: "actions/checkout@v2"
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: heroku container:login
