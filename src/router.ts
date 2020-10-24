@@ -3,10 +3,13 @@ import {Router} from 'express';
 import {InfoResponse} from './types/communications/InfoResponse';
 import {GameStartRequest, GameEndRequest} from './types/communications/GameRequest';
 import {MoveRequest, MoveResponse} from './types/communications/MoveCommunications';
+import { decideMove } from './utils/decideMove';
 
 export const router = Router();
 
 router.get("/", (req, res) => {
+    console.log("GET /");
+
     const infoResponse: InfoResponse = {
         apiVersion: "1",
         author: "GetOutMeSwamp",
@@ -19,23 +22,29 @@ router.get("/", (req, res) => {
 });
 
 router.post("/start", (req, res) => {
+    console.log("POST /start");
     const GameStartRequest: GameStartRequest = req.body;
 
     res.status(200).send();
 });
 
 router.post("/end", (req, res) => {
+    console.log("POST /end");
     const GameEndRequest: GameEndRequest = req.body;
 
     res.status(200).send();
 });
 
 router.post("/move", (req, res) => {
-    const moveRequest: MoveRequest = req.body
+    console.log("POST /move");
+
+    const moveRequest: MoveRequest = req.body;
+
+    const nextMove = decideMove(moveRequest.board);
 
     const moveResponse = {
-        move: "up",
-        shout: "AAAHHH"
+        move: nextMove,
+        shout: "---"
     };
 
     res.send(JSON.stringify(moveResponse));
