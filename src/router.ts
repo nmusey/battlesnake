@@ -1,8 +1,8 @@
-import {Router} from 'express';
+import { Router } from 'express';
 
-import {InfoResponse} from './types/communications/InfoResponse';
-import {GameStartRequest, GameEndRequest} from './types/communications/GameRequest';
-import {MoveRequest, MoveResponse} from './types/communications/MoveCommunications';
+import { InfoResponse } from './types/communications/InfoResponse';
+import { GameStartRequest, GameEndRequest } from './types/communications/GameRequest';
+import { MoveRequest } from './types/communications/MoveCommunications';
 import { decideMove } from './utils/decideMove';
 
 export const router = Router();

@@ -1,7 +1,8 @@
 import express, { json } from 'express';
 
-import {PORT} from './constants';
-import {router} from './router';
+import { router } from './router';
+
+const PORT = process.env.PORT || 3000; // 3000 for local development
 
 const app = express();
 
