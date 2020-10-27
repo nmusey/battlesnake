@@ -1,4 +1,4 @@
 build
 node_modules
 coverage
-.github
+deploy_package.zip

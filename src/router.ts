@@ -49,3 +49,7 @@ router.post("/move", (req, res) => {
 
     res.send(JSON.stringify(moveResponse));
 })
+
+router.get("*", (req, res) => {
+    res.status(404).send("Route not found");
+})
