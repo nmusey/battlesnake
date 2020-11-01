@@ -16,17 +16,13 @@
   "scripts": {
     "build": "./node_modules/.bin/tsc --project config/tsconfig.json",
     "build:watch": "./node_modules/.bin/tsc --watch --preserveWatchOutput --project config/tsconfig.json",
-    
+
     "startSnake": "node build/index.js",
     "startSnake:watch": "./node_modules/.bin/nodemon build/index.js",
     
     "clean": "rm -rf node_modules build",
-
+    "zip": "zip -r deploy_package.zip .",
     "dev": "./node_modules/.bin/concurrently \"npm run build:watch\" \"npm run startSnake:watch\"",
-    "docker:build": "docker build .",
-    "docker:run": "docker run -p 3000:3000 nmusey/battlesnake",
-    "docker:push": "docker push nmusey/battlesnake",
-
     "start": "npm run startSnake",
     "test": "./node_modules/.bin/jest --config='./config/jest.config.js'"
   },
