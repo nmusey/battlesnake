@@ -1,30 +1,33 @@
 {
   "name": "battlesnake",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.18.3",
+    "npm": "6.14.8"
+  },
   "private": true,
   "dependencies": {
-    "express": "^4.17.1",
-    "node-fetch": "^2.6.1"
-  },
-  "devDependencies": {
     "@types/express": "^4.17.8",
-    "concurrently": "^5.3.0",
-    "jest": "^26.6.1",
-    "nodemon": "^2.0.6",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
     "typescript": "^4.0.5"
   },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "jest": "^26.6.1",
+    "nodemon": "^2.0.6"
+  },
   "scripts": {
-    "build": "./node_modules/.bin/tsc --project config/tsconfig.json",
     "build:watch": "./node_modules/.bin/tsc --watch --preserveWatchOutput --project config/tsconfig.json",
-
+    "build:zip": "zip -r deploy_package.zip .",
+    "build": "./node_modules/.bin/tsc --project config/tsconfig.json",
     "startSnake": "node build/index.js",
     "startSnake:watch": "./node_modules/.bin/nodemon build/index.js",
-    
     "clean": "rm -rf node_modules build",
-    "zip": "zip -r deploy_package.zip .",
     "dev": "./node_modules/.bin/concurrently \"npm run build:watch\" \"npm run startSnake:watch\"",
-    "start": "npm run startSnake",
-    "test": "./node_modules/.bin/jest --config='./config/jest.config.js'"
+    "test": "./node_modules/.bin/jest --config='./config/jest.config.js'",
+    "setup": "npm run clean && npm install",
+    "start": "npm run startSnake"
   },
   "repository": {
     "type": "git",

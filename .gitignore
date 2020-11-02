@@ -2,7 +2,7 @@ build
 node_modules
 coverage
 deploy_package.zip
-.elasticbeanstalk
+
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
