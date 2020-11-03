@@ -22,10 +22,6 @@ router.get("/", (req, res) => {
     res.send(JSON.stringify(infoResponse));
 });
 
-router.get("/ping", (req, res) => {
-    res.send("pong");
-});
-
 router.post("/start", (req, res) => {
     console.log("POST /start");
     const GameStartRequest: GameStartRequest = req.body;
