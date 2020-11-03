@@ -2,10 +2,11 @@ import { Router } from 'express';
 
 import { InfoResponse } from './types/communications/InfoResponse';
 import { GameStartRequest, GameEndRequest } from './types/communications/GameRequest';
-import { MoveRequest } from './types/communications/MoveCommunications';
-import { decideMove } from './utils/decideMove';
+import { MoveDecider } from './utils/MoveDecider';
 
 export const router = Router();
+
+const moveDecider = new MoveDecider();
 
 router.get("/", (req, res) => {
     console.log("GET /");
@@ -21,26 +22,28 @@ router.get("/", (req, res) => {
     res.send(JSON.stringify(infoResponse));
 });
 
+router.get("/ping", (req, res) => {
+    res.send("pong");
+});
+
 router.post("/start", (req, res) => {
     console.log("POST /start");
     const GameStartRequest: GameStartRequest = req.body;
 
-    res.status(200).send();
+    res.send();
 });
 
 router.post("/end", (req, res) => {
     console.log("POST /end");
     const GameEndRequest: GameEndRequest = req.body;
 
-    res.status(200).send();
+    res.send();
 });
 
 router.post("/move", (req, res) => {
     console.log("POST /move");
 
-    const moveRequest: MoveRequest = req.body;
-
-    const nextMove = decideMove(moveRequest.board);
+    const nextMove = moveDecider.getMove();
 
     const moveResponse = {
         move: nextMove,
@@ -52,4 +55,6 @@ router.post("/move", (req, res) => {
 
 router.get("*", (req, res) => {
     res.status(404).send("Route not found");
-})
+});
+
+export default router;

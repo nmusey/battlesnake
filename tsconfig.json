@@ -1,11 +1,14 @@
 {
   "include": [
-    "../src/**/*"
+    "./src/**/*"
+  ],
+  "exclude": [
+    "./build/**/*"
   ],
   "compilerOptions": {
     "target": "ES2019",
     "module": "commonjs",
-    "outDir": "../build",
+    "outDir": "./build",
     "removeComments": true,
     "strict": true,
     "noImplicitAny": true,

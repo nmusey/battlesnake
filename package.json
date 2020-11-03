@@ -10,24 +10,20 @@
     "@types/express": "^4.17.8",
     "express": "^4.17.1",
     "node-fetch": "^2.6.1",
-    "typescript": "^4.0.5"
+    "typescript": "^4.0.5",
+    "ts-node": "^9.0.0"
   },
   "devDependencies": {
-    "concurrently": "^5.3.0",
+    "@types/jest": "^26.0.15",
     "jest": "^26.6.1",
-    "nodemon": "^2.0.6"
+    "ts-jest": "^26.4.3",
+    "ts-node-dev": "^1.0.0"
   },
   "scripts": {
-    "build:watch": "./node_modules/.bin/tsc --watch --preserveWatchOutput --project config/tsconfig.json",
-    "build:zip": "zip -r deploy_package.zip .",
-    "build": "./node_modules/.bin/tsc --project config/tsconfig.json",
-    "startSnake": "node build/index.js",
-    "startSnake:watch": "./node_modules/.bin/nodemon build/index.js",
     "clean": "rm -rf node_modules build",
-    "dev": "./node_modules/.bin/concurrently \"npm run build:watch\" \"npm run startSnake:watch\"",
-    "test": "./node_modules/.bin/jest --config='./config/jest.config.js'",
-    "setup": "npm run clean && npm install",
-    "start": "npm run startSnake"
+    "dev": "./node_modules/.bin/ts-node-dev src/index.ts",
+    "test": "./node_modules/.bin/jest",
+    "start": "./node_modules/.bin/ts-node src/index.ts"
   },
   "repository": {
     "type": "git",
