@@ -20,7 +20,8 @@
     "ts-node-dev": "^1.0.0"
   },
   "scripts": {
-    "clean": "rm -rf node_modules build",
+    "clean": "rm -rf node_modules build deploy_package.zip",
+    "zip": "npm run clean && npm ci && zip -r deploy_package.zip .",
     "dev": "./node_modules/.bin/ts-node-dev src/index.ts",
     "test": "./node_modules/.bin/jest",
     "start": "./node_modules/.bin/ts-node src/index.ts"
