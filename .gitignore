@@ -2,6 +2,8 @@ build
 node_modules
 coverage
 deploy_package.zip
+server.cert
+server.key
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
