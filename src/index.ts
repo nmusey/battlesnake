@@ -1,6 +1,4 @@
 import express, { json } from 'express';
-import https from 'https';
-import fs from 'fs';
 
 import router from './router';
 
@@ -11,12 +9,6 @@ const app = express();
 app.use(json());
 app.use(router);
 
-const server = https.createServer({
-    key: fs.readFileSync('server.key'),
-    cert: fs.readFileSync('server.cert')
-  }, app)
-  
-
-server.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log(`Server up on port ${PORT}`);
 });

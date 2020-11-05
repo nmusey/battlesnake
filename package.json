@@ -20,7 +20,7 @@
     "ts-node-dev": "^1.0.0"
   },
   "scripts": {
-    "setup": "npm install && openssl req -nodes -new -x509 -keyout server.key -out server.cert",
+    "build": "./node_modules/.bin/tsc",
     "dev": "./node_modules/.bin/ts-node-dev src/index.ts",
     "test": "./node_modules/.bin/jest",
     "start": "./node_modules/.bin/ts-node src/index.ts"
