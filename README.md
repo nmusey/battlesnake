@@ -10,9 +10,10 @@ To start, ensure that node and npm are installed using `node --version && npm --
 Run `npm install` to install all packages.
 
 ## Testing
-To test, use `npm test`. The server must be manually stopped after testing (ctrl + c).
+To test, use `npm test`.
 
 ## Running the Server Locally
 To run the server locally, run `npm start`.
 
-Other scripts can be found in `package.json` but `start` is the most important.
+## Deployment
+SSH into the EC2 instance and pull the changes to the local repo, then run `sudo pm2 restart`.
