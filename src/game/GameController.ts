@@ -1,15 +1,15 @@
-import { MoveDecider } from './MoveDecider';
+import { Strategy } from './Strategy';
 
-import { Game } from '../types/GameTypes';
+import { Game, Board } from '../types/GameTypes';
 
 export class GameController {    
     id: string;
-    moveDecider: MoveDecider;
+    strategy: Strategy;
 
-    constructor(game: Game) {
+    constructor(game: Game, strategy: Strategy) {
         this.id = game.id;
-        this.moveDecider = new MoveDecider();
+        this.strategy = strategy;
     }
 
-    getMove = () => this.moveDecider.getMove();
+    getMove = (board: Board) => this.strategy.getMove(board);
 }

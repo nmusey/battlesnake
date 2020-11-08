@@ -21,4 +21,6 @@ To run the server locally, run `npm start`.
 SSH into the EC2 instance and pull the changes to the local repo, then run `sudo pm2 restart`.
 
 ## High Level Overview
-The server runs a single `Controller` which keeps track of individual games using `GameController`s. Each `GameController` looks after things like deciding a move or tracking the state of the game.
+The server runs a single `Controller` which keeps track of individual games using `GameController`s. Each `GameController` looks after things like deciding a move or tracking the state of the game. 
+
+Choosing a move is done through a `Strategy`. Custom logic should extend this base class.

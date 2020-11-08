@@ -1,13 +1,17 @@
-import { Move, Moves, Board } from "../types/GameTypes";
+import { Strategy } from "../Strategy";
 
-export class MoveDecider {
+import { Move, Moves, Board } from "../../types/GameTypes";
+
+export class CircleStrategy extends Strategy {
+    label = "circle"
     lastMove: Move;
 
     constructor() {
+        super()
         this.lastMove = Moves.UP;
     }
 
-    getMove = () => {
+    getMove = (): Move => {
         const possibleMoves = [Moves.UP, Moves.RIGHT, Moves.DOWN, Moves.LEFT];
 
         const nextIndex = (possibleMoves.indexOf(this.lastMove) + 1) % possibleMoves.length;

@@ -1,4 +1,6 @@
 import { Controller } from '../src/Controller';
+import { CircleStrategy } from '../src/game/strategies/CircleStrategy';
+import { Strategy } from '../src/game/Strategy';
 
 import { mockGame, mockGame2 } from './mocks/game';
 
@@ -6,13 +8,15 @@ describe("Controller", () => {
     describe("lifecycle methods", () => {
         describe("starting a game", () => {
             let controller: Controller;
+            let strategy: Strategy
 
             beforeEach(() => {
                 controller = new Controller();
+                strategy = new Strategy();
             })
 
             it("starts a new game with a correct id", () => {
-                controller.start(mockGame);
+                controller.start(mockGame, strategy);
 
                 const gameController = controller.getGameController(mockGame);
 
@@ -20,10 +24,8 @@ describe("Controller", () => {
             })
 
             it("starts multiple games with correct ids", () => {
-                const controller = new Controller();
-
-                controller.start(mockGame);
-                controller.start(mockGame2);
+                controller.start(mockGame, strategy);
+                controller.start(mockGame2, strategy);
 
                 const gameController = controller.getGameController(mockGame);
                 const gameController2 = controller.getGameController(mockGame2);
@@ -32,15 +34,29 @@ describe("Controller", () => {
                 expect(gameController2.id).toBe(mockGame2.id);
                 expect(gameController.id).not.toBe(gameController2.id);
             })
+
+            it("handles multiple strategies", () => {
+                const otherStrategy = new Strategy();
+
+                controller.start(mockGame, strategy);
+                controller.start(mockGame2, otherStrategy);
+
+                const gameController = controller.getGameController(mockGame);
+                const gameController2 = controller.getGameController(mockGame2);
+
+                expect(gameController.strategy).not.toBe(gameController2);
+            })
         })
 
         describe("ending a game", () => {
             let controller: Controller;
+            let strategy: Strategy;
             
             beforeEach(() => {
                 controller = new Controller();
-                controller.start(mockGame);
-                controller.start(mockGame2);
+                strategy = new Strategy();
+                controller.start(mockGame, strategy);
+                controller.start(mockGame2, strategy);
             })
 
             it("deletes only the correct game when its finished", () => {
