@@ -46,6 +46,14 @@ describe("Controller", () => {
 
                 expect(gameController.strategy).not.toBe(gameController2);
             })
+
+            it("handles not getting a strategy passed to it", () => {
+                controller.start(mockGame);
+
+                const gameController = controller.getGameController(mockGame);
+
+                expect(gameController.id).toBe(mockGame.id)
+            })
         })
 
         describe("ending a game", () => {
@@ -72,6 +80,18 @@ describe("Controller", () => {
 
                 expect(controller.getGameController(mockGame)).toBeUndefined;
             })
+        })
+    })
+
+    describe("getters", () => {
+        const controller = new Controller();
+        controller.start(mockGame);
+
+        describe("getGameController", () => {
+            const getterResult = controller.getGameController(mockGame);
+            const directResult = controller.gameControllers[mockGame.id];
+
+            expect(getterResult).toBe(directResult);
         })
     })
 })

@@ -11,5 +11,5 @@ export class GameController {
         this.strategy = strategy;
     }
 
-    getMove = (board: Board) => this.strategy.getMove(board);
+    getMove = (board?: Board) => this.strategy.getMove(board);
 }
