@@ -1,11 +1,10 @@
-import { Board } from '../Board';
-import { Battlesnake } from '../Battlesnake';
+import { Board, Battlesnake, Game } from '../GameTypes';
 
 export type GameRequest = {
-    game?: Object,
-    turn?: number,
-    board?: Board,
-    you?: Battlesnake
+    game: Game,
+    turn: number,
+    board: Board,
+    you: Battlesnake
 }
 
 export interface GameStartRequest extends GameRequest {}

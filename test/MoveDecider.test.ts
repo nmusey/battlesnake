@@ -1,12 +1,6 @@
-import { MoveDecider } from "../src/utils/MoveDecider";
+import { MoveDecider } from "../src/game/MoveDecider";
 
 describe("MoveDecider", () => {
-    it("has a static variable lastMove", () => {
-        const moveDecider = new MoveDecider();
-
-        expect(moveDecider.lastMove).toBeDefined();
-    })
-
     it("cycles through moves", () => {
         const moveDecider = new MoveDecider();
 

@@ -1,5 +1,4 @@
-import { Move, Moves } from "../types/Move";
-import { Board } from "../types/Board"
+import { Move, Moves, Board } from "../types/GameTypes";
 
 export class MoveDecider {
     lastMove: Move;

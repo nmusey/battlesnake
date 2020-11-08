@@ -1,8 +1,8 @@
 import express, { json } from 'express';
 
-import router from './router';
+import router from './server/router';
 
-const PORT = process.env.PORT || 3000; // http://localhost:3000 for local development
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 

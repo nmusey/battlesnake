@@ -1,14 +1,7 @@
-import { Game } from '../Game';
-import { Board } from '../Board';
-import { Battlesnake } from '../Battlesnake';
-import { Move } from '../Move';
+import { GameRequest } from './GameRequest';
+import { Move } from '../GameTypes';
 
-export type MoveRequest = {
-    game?: Game;
-    turn?: number;
-    board?: Board;
-    you?: Battlesnake;
-};
+export interface MoveRequest extends GameRequest {}
 
 export type MoveResponse = {
     move: Move;
