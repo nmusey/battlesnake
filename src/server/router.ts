@@ -5,7 +5,7 @@ import { Controller } from '../Controller';
 import { InfoResponse } from '../types/communications/InfoResponse';
 import { GameStartRequest, GameEndRequest } from '../types/communications/GameRequest';
 import { MoveRequest, MoveResponse } from '../types/communications/MoveCommunications';
-import { Move } from '../types/GameTypes';
+import { Move, Moves } from '../types/GameTypes';
 
 export const router = Router();
 
@@ -39,7 +39,11 @@ router.post("/move", (req, res) => {
     const moveRequest: MoveRequest = req.body;
 
     const gameTracker = controller.getGameController(moveRequest.game);
-    const nextMove: Move = gameTracker.getMove();
+
+    let nextMove: Move = Moves.DOWN;
+    if (gameTracker) {
+        nextMove = gameTracker.getMove(moveRequest.board);
+    }
 
     const moveResponse: MoveResponse = {
         move: nextMove,
