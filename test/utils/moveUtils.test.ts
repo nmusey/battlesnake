@@ -6,5 +6,7 @@ import { simulator } from "../testUtils/randomTestUtils";
 describe("getRandomMove", () => {
     it("should return a move", () => {
         const simulatedValue = simulator(100)(getRandomMove)( move => isValidMove(move) );
+
+        expect(simulatedValue).toBe(true);
     })
 })

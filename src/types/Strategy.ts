@@ -1,4 +1,4 @@
-import { Board, Move, Moves } from "../types/GameTypes";
+import { Board, Move, Moves } from "./GameTypes";
 
 export interface Strategy {
     label: string;

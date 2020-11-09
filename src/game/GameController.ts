@@ -1,4 +1,4 @@
-import { Strategy } from './Strategy';
+import { Strategy } from '../types/Strategy';
 
 import { Game, Board } from '../types/GameTypes';
 

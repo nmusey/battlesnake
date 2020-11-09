@@ -9,8 +9,6 @@
 export const simulator = <ReturnT>(numTimes: number) =>
     <ReturnT>(func: (...args: any) => ReturnT, ...args: any[]) => 
         ( condition: (generated: ReturnT) => boolean): boolean => {
-            console.log(`${func.name} called on ${[args]} which equals ${func.apply(args)}`)
-
             for (let i = 0; i < numTimes; i++) {
                 const generatedValue = func(...args);
                 if (!condition(generatedValue)) {

@@ -1,6 +1,6 @@
 import { GameController } from './game/GameController';
 import { CircleStrategy } from './game/strategies/CircleStrategy';
-import { Strategy } from './game/Strategy';
+import { Strategy } from './types/Strategy';
 
 import { Game } from './types/GameTypes';
 

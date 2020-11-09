@@ -1,6 +1,6 @@
 import { Controller } from '../src/Controller';
 import { RandomStrategy } from '../src/game/strategies/RandomStrategy';
-import { Strategy } from '../src/game/Strategy';
+import { Strategy } from '../src/types/Strategy';
 
 import { mockGame, mockGame2 } from './mocks/game';
 
