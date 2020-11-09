@@ -2,12 +2,11 @@ import { Strategy } from "../Strategy";
 
 import { Move, Moves, Board } from "../../types/GameTypes";
 
-export class CircleStrategy extends Strategy {
+export class CircleStrategy implements Strategy {
     label = "circle"
     lastMove: Move;
 
     constructor() {
-        super()
         this.lastMove = Moves.UP;
     }
 

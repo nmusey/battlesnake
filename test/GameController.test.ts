@@ -1,12 +1,12 @@
 import { GameController } from "../src/game/GameController";
-import { Strategy } from "../src/game/Strategy";
+import { RandomStrategy } from "../src/game/strategies/RandomStrategy";
 
 import { mockGame } from "./mocks/game";
-import { isValidMove } from "./utils/moveUtils";
+import { isValidMove } from "./testUtils/moveTestUtils";
 
 describe("GameController", () => {
     it("should have a getMove function", () => {
-        const gameController = new GameController(mockGame, new Strategy());
+        const gameController = new GameController(mockGame, new RandomStrategy());
 
         const isValid = isValidMove( gameController.getMove() );
 

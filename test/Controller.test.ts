@@ -1,5 +1,5 @@
 import { Controller } from '../src/Controller';
-import { CircleStrategy } from '../src/game/strategies/CircleStrategy';
+import { RandomStrategy } from '../src/game/strategies/RandomStrategy';
 import { Strategy } from '../src/game/Strategy';
 
 import { mockGame, mockGame2 } from './mocks/game';
@@ -12,7 +12,7 @@ describe("Controller", () => {
 
             beforeEach(() => {
                 controller = new Controller();
-                strategy = new Strategy();
+                strategy = new RandomStrategy();
             })
 
             it("starts a new game with a correct id", () => {
@@ -36,7 +36,7 @@ describe("Controller", () => {
             })
 
             it("handles multiple strategies", () => {
-                const otherStrategy = new Strategy();
+                const otherStrategy = new RandomStrategy();
 
                 controller.start(mockGame, strategy);
                 controller.start(mockGame2, otherStrategy);
@@ -62,7 +62,7 @@ describe("Controller", () => {
             
             beforeEach(() => {
                 controller = new Controller();
-                strategy = new Strategy();
+                strategy = new RandomStrategy();
                 controller.start(mockGame, strategy);
                 controller.start(mockGame2, strategy);
             })
