@@ -1,7 +1,7 @@
 # Battlesnake
 
 ## Setup
-Setup for this project is pretty standard. Just install the npm dependencies.
+Setup for this project is pretty standard. Just install the npm dependencies and run the server locally.
 
 To start, ensure that node and npm are installed using `node --version && npm --version`.
 
@@ -24,3 +24,10 @@ SSH into the EC2 instance and pull the changes to the local repo. Run `npm run b
 The server runs a single `Controller` which keeps track of individual games using `GameController`s. Each `GameController` looks after things like deciding a move or tracking the state of the game. 
 
 Choosing a move is done through a `Strategy`. Custom logic should extend this base class.
+
+### Strategies
+#### Circle
+The snake goes in circles. This is just a basic strategy to test things out with.
+
+#### Random
+The snake chooses a random move at each turn, possibly choosing an invalid move.
