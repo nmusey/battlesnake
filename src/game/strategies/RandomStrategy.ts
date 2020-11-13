@@ -1,11 +1,12 @@
 import { Strategy } from "../../types/Strategy";
 
-import { Moves, Move, Board } from "../../types/GameTypes";
+import { Move, Board } from "../../types/GameTypes";
+import { getRandomMove } from "../../utils/moveUtils";
 
 export class RandomStrategy implements Strategy {
-    label = ""
+    label = "random"
 
     getMove = (board?: Board): Move => {
-        return Moves.DOWN;
+        return getRandomMove();
     }
 }

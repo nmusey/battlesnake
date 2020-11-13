@@ -1,12 +1,12 @@
 import { Moves, Move } from "../../src/types/GameTypes"
-import { isValidMove } from "./moveTestUtils";
+import { isMove } from "./moveTestUtils";
 
-describe("isValidMove", () => {
+describe("isMove", () => {
     it("should recognize a move", () => {
-        expect(isValidMove(Moves.UP)).toBe(true);
+        expect(isMove(Moves.UP)).toBe(true);
     })
 
     it("should reject an invalid move", () => {
-        expect(isValidMove("no" as Move)).toBe(false);
+        expect(isMove("no" as Move)).toBe(false);
     })
 })
